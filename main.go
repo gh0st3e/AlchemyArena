@@ -81,7 +81,7 @@ func (s *Server) handleHTTP(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	server := NewServer()
-	http.HandleFunc("/", server.handleHTTP)
+	http.HandleFunc("/index", server.handleHTTP)
 	http.Handle("/ws", websocket.Handler(server.handleWS))
 	err := http.ListenAndServe(":3000", nil)
 	if err != nil {
