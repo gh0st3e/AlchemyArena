@@ -5,13 +5,13 @@
 
 [[redirects]]
   from = "/api/*"
-  to = "http://localhost:3000/:splat"
+  to = "https://main--stellular-kitten-88e0a5.netlify.app/api/:splat"
   status = 200
   force = true
 
 [[redirects]]
   from = "/ws/*"
-  to = "ws://localhost:3000/:splat"
+  to = "wss://main--stellular-kitten-88e0a5.netlify.app/api/ws/:splat"
   status = 101
   force = true
 
@@ -22,7 +22,7 @@
     Access-Control-Allow-Origin = "*"
     Access-Control-Allow-Headers = "Content-Type"
     Access-Control-Allow-Methods = "POST, GET, OPTIONS, PUT, DELETE"
-    Content-Security-Policy = "connect-src ws://localhost:3000"
+    Content-Security-Policy = "connect-src wss://main--stellular-kitten-88e0a5.netlify.app/api/ws"
 
 [[redirects]]
   from = "/"
