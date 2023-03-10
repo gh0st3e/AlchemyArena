@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>WebSocket Chat</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+</head>
+<body>
+<div id="chatbox"></div>
+<form id="inputform">
+  <input type="text" id="messageinput">
+  <button type="submit">Send</button>
+</form>
+<script>
+  var socket = new WebSocket("ws://localhost:3000/ws");
+  socket.onmessage = function(event) {
+    var msg = event.data;
+    $('#chatbox').append(msg + '<br>');
+  };
+  $('#inputform').submit(function(event) {
+    event.preventDefault();
+    var message = $('#messageinput').val();
+    socket.send(message);
+    $('#messageinput').val('');
+  });
+</script>
+</body>
+</html>
