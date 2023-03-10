@@ -5,13 +5,13 @@
 
 [[redirects]]
   from = "/api/*"
-  to = "https://main--stellular-kitten-88e0a5.netlify.app/api/:splat"
+  to = "wss://main--stellular-kitten-88e0a5.netlify.app/ws"
   status = 200
   force = true
 
 [[redirects]]
   from = "/ws/*"
-  to = "wss://main--stellular-kitten-88e0a5.netlify.app/api/ws/:splat"
+  to = "wss://main--stellular-kitten-88e0a5.netlify.app/ws"
   status = 101
   force = true
 
