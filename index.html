@@ -13,7 +13,7 @@
   <button type="submit">Send</button>
 </form>
 <script>
-  var socket = new WebSocket("ws://localhost:3000/ws");
+  var socket = new WebSocket("ws://https://main--stellular-kitten-88e0a5.netlify.app/ws");
   socket.onmessage = function(event) {
     var msg = event.data;
     $('#chatbox').append(msg + '<br>');
