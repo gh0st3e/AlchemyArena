@@ -4,10 +4,11 @@
   status = 200
 
 [[redirects]]
-  from = "/ws/*"
-  to = "ws://localhost:3000/ws/:splat"
-  status = 200
+  from = "/ws"
+  to = "ws://main--stellular-kitten-88e0a5.netlify.app/ws"
+  status = 101
   force = true
+
 
 [[headers]]
   for = "/*"
