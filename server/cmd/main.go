@@ -83,7 +83,7 @@ func main() {
 	server := NewServer()
 	http.HandleFunc("/", server.handleHTTP)
 	http.Handle("/ws", websocket.Handler(server.handleWS))
-	err := http.ListenAndServe(":3000", nil)
+	err := http.ListenAndServe("", nil)
 	if err != nil {
 		log.Printf("listen error: %s", err)
 	}
