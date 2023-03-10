@@ -1,1 +1,23 @@
-command = "go run main.go"
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/ws/*"
+  to = "ws://localhost:3000/ws/:splat"
+  status = 200
+  force = true
+
+[[headers]]
+  for = "/*"
+    [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Headers = "Content-Type"
+    Access-Control-Allow-Methods = "POST, GET, OPTIONS, PUT, DELETE"
+    Content-Security-Policy = "connect-src ws://localhost:3000"
+
+[[redirects]]
+  from = "/"
+  to = "/index"
+  status = 302

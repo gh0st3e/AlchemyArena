@@ -73,8 +73,8 @@ func (s *Server) handleHTTP(w http.ResponseWriter, r *http.Request) {
 	// Добавить CSP заголовок
 	w.Header().Set("Content-Security-Policy", "connect-src ws://localhost:3000")
 
-	if r.Method == "GET" && r.URL.Path == "/index" {
-		http.ServeFile(w, r, "test.html")
+	if r.Method == "GET" && r.URL.Path == "/index.html" {
+		http.ServeFile(w, r, "index.html")
 	} else {
 		http.NotFound(w, r)
 	}
@@ -87,7 +87,7 @@ func main() {
 	}
 
 	server := NewServer()
-	http.HandleFunc("/index", server.handleHTTP)
+	http.HandleFunc("/index.html", server.handleHTTP)
 	http.Handle("/ws", websocket.Handler(server.handleWS))
 	err := http.ListenAndServe(":"+port, nil)
 	if err != nil {
