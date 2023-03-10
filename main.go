@@ -5,6 +5,7 @@ import (
 	"io"
 	"log"
 	"net/http"
+	"os"
 )
 
 type Server struct {
@@ -80,10 +81,15 @@ func (s *Server) handleHTTP(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "3000"
+	}
+
 	server := NewServer()
 	http.HandleFunc("/index", server.handleHTTP)
 	http.Handle("/ws", websocket.Handler(server.handleWS))
-	err := http.ListenAndServe(":3000", nil)
+	err := http.ListenAndServe(":"+port, nil)
 	if err != nil {
 		log.Printf("listen error: %s", err)
 	}
